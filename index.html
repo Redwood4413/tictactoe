@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital@1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, minimum-scale = 0.5, maximum-scale = 0.5, user-scalable = no" />
+  <meta charset="UTF-8" />
+</head>
+
+<body onload="onLoad()">
+  <div class="console-popup"></div>
+  <div class="starting-field">
+    <div class="starting-field-wrapper">
+      <h1>Tic Tac Toe</h1>
+      <small>v. 1.1</small>
+      <div class="input-section">
+        <hr />
+        <h3>Playing with:</h3>
+        <button clicked="false">Other player</button>
+        <button class="bot-button">Bot</button>
+        <h3>Game type:</h3>
+        <button clicked="false">Standard 3x3</button>
+        <button clicked="false" title="Currently unavailable." class="limitless" disabled>
+          Limitless
+        </button>
+        <div class="input-numbers">
+          <div title="Points required to win the game">
+            <h3>Points</h3>
+            <input class="input-points" type="number" min="3" max="99" value="3" />
+          </div>
+          <div title="Signs in a row required to win round">
+            <h3>In-row</h3>
+            <input class="input-in-row" type="number" min="3" max="99" value="3" disabled />
+          </div>
+          <div title="Playing board size">
+            <h3>Size</h3>
+            <input class="input-size" type="number" min="3" max="99" value="3" />
+          </div>
+        </div>
+      </div>
+      <div class="nickname-section">
+        <div class="first-player">
+          <button id="1" class="random-button"></button>
+          <input type="text" placeholder="Enter nickname" class="first-nickname-input" />
+        </div>
+        <h3>VS</h3>
+        <div class="second-player">
+          <input type="text" placeholder="Enter nickname" class="second-nickname-input" />
+          <button id="2" class="random-button"></button>
+        </div>
+      </div>
+      <button clicked="false" class="play-button">PLAY</button>
+      <div class="alert-box"></div>
+    </div>
+  </div>
+
+  <div class="top">
+    <div class="top-bar">
+      <div class="stats-board">
+        <div class="first-avatar"></div>
+        <div class="first-points"></div>
+        <h3>:</h3>
+        <div class="second-points"></div>
+        <div class="second-avatar"></div>
+        <span class="material-symbols-outlined"> expand_more </span>
+      </div>
+      <div class="top-dropdown-bar">
+        <div class="first-dropdown-bar-wrapper">
+          <div class="first-user">
+            <div class="first-avatar"></div>
+            <div class="first-nickname-display"></div>
+          </div>
+          <span>Points:</span>
+          <div class="first-dropdown-points"></div>
+          /<span class="point-limit"></span>
+        </div>
+        <div class="second-dropdown-bar-wrapper">
+          <div class="second-user">
+            <div class="second-avatar"></div>
+            <div class="second-nickname-display"></div>
+          </div>
+          <span>Points:</span>
+          <div class="second-dropdown-points"></div>
+          /<span class="point-limit"></span>
+        </div>
+        <div class="move-count-display">
+          <span>Move Count:</span>
+          <div class="move-count"></div>
+        </div>
+      </div>
+    </div>
+    <div class="top-bar-triangle">
+      <div class="top-bar-inner-triangle"></div>
+    </div>
+    <div class="top-bar-border"></div>
+  </div>
+  <div class="wrapper">
+    <div class="playing-board">
+      <div class="moving-field">Moving...</div>
+      <div class="counting-down-field"></div>
+      <div class="end-game">
+        <div class="end-avatar-display"></div>
+        <div class="end-nickname-display"></div>
+        <span>WINS!</span>
+      </div>
+      <div class="end-round">Click to resume</div>
+    </div>
+  </div>
+  <script type="module" src="./src/main.ts"></script>
+</body>
+
+</html>
