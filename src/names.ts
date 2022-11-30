@@ -1,5 +1,5 @@
-{
-  "firstNames": [
+
+const firstNames = [
     "Bogusław",
     "Bogumił",
     "Bogdan",
@@ -59,8 +59,8 @@
     "Zlatan",
     "Ziemowit",
     "Ździsław"
-  ],
-  "secondNames": [
+  ]
+  const lastNames = [
     "Adamek",
     "Adam",
     "Adamcio",
@@ -122,4 +122,4 @@
     "Gruz",
     "Kozak"
   ]
-}
+export { firstNames, lastNames }

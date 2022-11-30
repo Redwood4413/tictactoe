@@ -1,6 +1,9 @@
-// @ts-nocheck
+
 import './style.css'
 import './version.ts'
+import { randomNickname } from './random-name'
+import { players } from './players'
+
 
 const playingBoard = document.querySelector(".playing-board");
 const wrapper = document.querySelector(".wrapper");
@@ -8,8 +11,7 @@ const firstAvatar = document.querySelector(".first-avatar");
 const secondAvatar = document.querySelector(".second-avatar");
 const playButton = document.querySelector(".play-button");
 const randomButtons = document.querySelectorAll(".random-button");
-const firstNickname = document.querySelector(".first-nickname-display");
-const secondNickname = document.querySelector(".second-nickname-display");
+
 const queryFirstNameInput = document.querySelector(".first-nickname-input");
 const querySecondNameInput = document.querySelector(".second-nickname-input");
 const firstPoints = document.querySelector(".first-points");
@@ -26,8 +28,7 @@ const startingField = document.querySelector(".starting-field");
 const endGameAvatar = document.querySelector(".end-avatar-display")
 const endGameNickname = document.querySelector(".end-nickname-display")
 
-import firstNames from "./names.json";
-// console.log(firstNames.firstNames)
+
 
 const firstPointsLeft = document.querySelector(".first-dropdown-points");
 const secondPointsLeft = document.querySelector(".second-dropdown-points");
@@ -36,8 +37,9 @@ const endGameQuery = document.querySelector(".end-game");
 const drawCircle = `<div class="circle"></div>`;
 const drawCross = `<div class="cross"></div>`;
 let posArray: string[] = [];
-let rows, columns: number;
+let rows: number, columns: number;
 let posX, posY, turn;
+console.log(typeof posX, posY)
 let moveCount = 0;
 let winner = null;
 let SignsInRowToWin = 3;
@@ -46,20 +48,7 @@ let isMouseDown = false;
 let movingTimeout = null;
 let playingWith = "other-player";
 
-let players = {
-  player_1: {
-    ID: 1,
-    nickname: `Guest`,
-    points: 0,
-    sign: String,
-  },
-  player_2: {
-    ID: 2,
-    nickname: `Guest`,
-    points: 0,
-    sign: String,
-  },
-};
+
 
 firstPoints.innerHTML = players.player_1.points;
 secondPoints.innerHTML = players.player_2.points;
@@ -387,7 +376,9 @@ function startTheGame() {
   if (queryFirstNameInput.value) players.player_1.nickname = queryFirstNameInput.value;
   if (querySecondNameInput.value) players.player_2.nickname = querySecondNameInput.value;
 
+  const firstNickname = document.querySelector(".first-nickname-display") as HTMLBodyElement
   firstNickname.innerHTML = players.player_1.nickname;
+  const secondNickname = document.querySelector(".second-nickname-display") as HTMLBodyElement
   secondNickname.innerHTML = players.player_2.nickname;
 
   SignsInRowToWin = inputInRow.value;
@@ -415,18 +406,7 @@ function startTheGame() {
   startingFieldAnim();
 
 }
-function randomNickname(e) {
-  let FirstRanNum = Math.floor(Math.random() * 59);
-  let SecRanNum = Math.floor(Math.random() * 59);
-  if (e.target.getAttribute("id") == "1") {
-    players.player_1.nickname = `${firstName[FirstRanNum]} ${secondName[SecRanNum]}`;
-    queryFirstNameInput.value = players.player_1.nickname;
-  } else {
-    players.player_2.nickname = `${firstName[FirstRanNum]} ${secondName[SecRanNum]}`;
-    querySecondNameInput.value = players.player_2.nickname;
 
-  }
-}
 function endGame() {
   endGameQuery.style.display = "flex"
   if (winner == 1) {
@@ -458,11 +438,12 @@ function clearPlayboard() {
   posArray = [];
 }
 
-function onLoad() {
+function init() {
   moveCountDisplay.innerHTML = moveCount;
   generatePlayboard(rows = 3, columns = 3);
   developerMode();
 }
+window.addEventListener("load", init);
 
 function validateInputs() {
   const firstElement = alertBox.querySelector(`div[id="1"]`)
@@ -750,10 +731,9 @@ function developerMode() {
     startingField.style.visibility = "visible"
     countingDown.style.visibility = "visible"
   }
-  console.log({ turn })
 }
 function kremowka() {
-  const barkaTRAP = new Audio('audio/barkaTRAP.mp3')
+  const barkaTRAP = new Audio('../audio/barkaTRAP.mp3')
   barkaTRAP.volume = 0.2;
   barkaTRAP.play();
   const kremowkaDiv = document.createElement("div")
