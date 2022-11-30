@@ -1,12 +1,12 @@
 body {
   box-sizing: border-box;
   /* background: rgb(171, 75, 7); */
-  background: url("./public/background-wall.jpg") 20% rgb(53, 53, 53);
+  background: url("../background-wall.jpg") 20% rgb(53, 53, 53);
   font-size: 150%;
   font-family: "Titillium Web", sans-serif;
   color: white;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
   border-bottom: 3px solid;
   border-image: linear-gradient(90deg, rgb(26, 209, 47), rgb(24, 194, 149)) 1;
 }
@@ -150,8 +150,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 689px;
-  align-self: center;
+
 }
 
 .starting-field-wrapper small {
@@ -311,7 +310,7 @@ h1 {
 }
 
 .first-avatar {
-  background: url("./public/first.png") no-repeat center;
+  background: url("../first.png") no-repeat center;
   background-size: 40px;
   width: 58px;
   height: 58px;
@@ -320,7 +319,7 @@ h1 {
 }
 
 .second-avatar {
-  background: url("./public/second.png") no-repeat center;
+  background: url("../second.png") no-repeat center;
   background-size: 40px;
   width: 58px;
   height: 58px;
@@ -339,7 +338,7 @@ h1 {
 .settings-gear {
   width: 50px;
   height: 50px;
-  background: url("./public/gear-options.png") no-repeat center;
+  background: url("../gear-options.png") no-repeat center;
   background-size: 50px;
 }
 
@@ -459,14 +458,14 @@ hr {
   cursor: pointer;
 
   transition: background 0.1s ease-in-out;
-  background: rgb(64, 64, 64) url("./public/dice.png") no-repeat center;
+  background: rgb(64, 64, 64) url("../dice.png") no-repeat center;
   border-image: linear-gradient(rgb(26, 209, 47), rgb(24, 128, 194)) 1;
 }
 
 .kremowka {
   position: absolute;
   z-index: 6;
-  background: url("./public/kremowka.png") no-repeat;
+  background: url("../kremowka.png") no-repeat;
   background-size: 200px;
   width: 200px;
   height: 200px;
@@ -475,7 +474,7 @@ hr {
 }
 
 .random-button:active {
-  background: rgb(209, 209, 209) url("./public/dice.png") no-repeat center;
+  background: rgb(209, 209, 209) url("../dice.png") no-repeat center;
 }
 
 .play-button {
